@@ -1,0 +1,226 @@
+{% include "header.html" %}
+
+<header>
+    <br><br>
+    <br>
+    <center><h1 class="privacy" id="terms-title">Terms and Conditions for SSSTikTok</h1></center>
+</header>
+
+<main class="article-section">
+    <section>
+        <h2 id="welcome-title">Welcome to SSSTikTok!</h2>
+        <p id="welcome-text">By using our website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+    </section>
+
+    <section>
+        <h2 id="acceptance-title">1. Acceptance of Terms</h2>
+        <p id="acceptance-text">By accessing or using SSSTikTok, you confirm that you accept these Terms and Conditions. If you do not agree, please refrain from using our services.</p>
+    </section>
+
+    <section>
+        <h2 id="changes-title">2. Changes to Terms</h2>
+        <p id="changes-text">We may update these terms periodically. Any changes will be posted on this page with an updated effective date. Your continued use of the website constitutes acceptance of the new terms.</p>
+    </section>
+
+    <section>
+        <h2 id="use-title">3. Use of the Website</h2>
+        <p id="use-text">You may use our website for personal, non-commercial purposes only. You must not misuse our site or introduce any viruses or harmful content.</p>
+    </section>
+
+    <section>
+        <h2 id="intellectual-property-title">4. Intellectual Property</h2>
+        <p id="intellectual-property-text">All content on SSSTikTok is the property of SSSTikTok or its licensors and is protected by intellectual property laws. You may not reproduce or distribute any content without prior written consent.</p>
+    </section>
+
+    <section>
+        <h2 id="limitation-title">5. Limitation of Liability</h2>
+        <p id="limitation-text">SSSTikTok will not be liable for any indirect or consequential losses arising from your use of the website. Your use of the site is at your own risk.</p>
+    </section>
+</main>
+
+
+<script>
+    function showProgress() {
+        const progressContainer = document.getElementById("progress-container");
+        const progressBar = document.getElementById("progress-bar");
+        const messageElement = document.querySelector(".message");
+
+        // Reset message visibility
+        if (messageElement) {
+            messageElement.style.display = "none"; // Hide message on new download
+        }
+
+        progressBar.style.width = '0%';  // Reset the progress bar
+        progressContainer.style.display = "block";  // Show the progress container
+
+        // Simulate progress updates (this should be linked to your actual progress)
+        let progress = 0;
+        const interval = setInterval(() => {
+            if (progress < 100) {
+                progress++;
+                progressBar.style.width = progress + "%";
+                progressBar.textContent = progress + "%";
+            } else {
+                clearInterval(interval);
+                alert("Your video is successfully downloaded!"); // You can replace this with your message logic
+            }
+        }, 100);  // Adjust timing as necessary
+    }
+</script>
+
+
+<script>
+    const translations = {
+        en: {
+            title: "SSSTikTok",
+            subtitle: "TikTok Video Downloader Without Watermark",
+            button: "Download",
+            success: "Download successful!",
+            error: "An error occurred.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. All rights reserved.",
+            mainMessage: "Enter TikTok Video URL",
+            contact: "Contact",
+            privacyPolicy: "Privacy Policy",
+            terms: "Terms and Conditions",
+            button: "Download",
+            
+           
+
+            termsTitle: "Terms and Conditions for SSSTikTok",
+            welcomeTitle: "Welcome to SSSTikTok!",
+            welcomeText: "By using our website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.",
+            acceptanceTitle: "1. Acceptance of Terms",
+            acceptanceText: "By accessing or using SSSTikTok, you confirm that you accept these Terms and Conditions. If you do not agree, please refrain from using our services.",
+            changesTitle: "2. Changes to Terms",
+            changesText: "We may update these terms periodically. Any changes will be posted on this page with an updated effective date. Your continued use of the website constitutes acceptance of the new terms.",
+            useTitle: "3. Use of the Website",
+            useText: "You may use our website for personal, non-commercial purposes only. You must not misuse our site or introduce any viruses or harmful content.",
+            intellectualPropertyTitle: "4. Intellectual Property",
+            intellectualPropertyText: "All content on SSSTikTok is the property of SSSTikTok or its licensors and is protected by intellectual property laws. You may not reproduce or distribute any content without prior written consent.",
+            limitationTitle: "5. Limitation of Liability",
+            limitationText: "SSSTikTok will not be liable for any indirect or consequential losses arising from your use of the website. Your use of the site is at your own risk.",
+            
+        },
+        id: {
+            title: "SSSTikTok",
+            subtitle: "Pengunduh Video TikTok Tanpa Watermark",
+            button: "Unduh",
+            success: "Unduh berhasil!",
+            error: "Terjadi kesalahan.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Semua hak dilindungi.",
+            mainMessage: "Masukkan URL Video TikTok",
+            contact: "Kontak",
+            privacyPolicy: "Kebijakan Privasi",
+            terms: "Syarat dan Ketentuan",
+            button: "Unduh",
+            
+
+            welcomeTitle: "Selamat datang di SSSTikTok!",
+            welcomeText: "Dengan menggunakan situs kami, Anda setuju untuk mematuhi dan terikat oleh syarat dan ketentuan berikut. Harap baca dengan teliti.",
+            acceptanceTitle: "1. Penerimaan Syarat",
+            acceptanceText: "Dengan mengakses atau menggunakan SSSTikTok, Anda mengonfirmasi bahwa Anda menerima Syarat dan Ketentuan ini. Jika Anda tidak setuju, harap jangan menggunakan layanan kami.",
+            changesTitle: "2. Perubahan Syarat",
+            changesText: "Kami dapat memperbarui syarat ini secara berkala. Setiap perubahan akan diposting di halaman ini dengan tanggal efektif yang diperbarui. Penggunaan Anda yang berkelanjutan terhadap situs ini dianggap sebagai penerimaan terhadap syarat yang baru.",
+            useTitle: "3. Penggunaan Situs",
+            useText: "Anda dapat menggunakan situs kami hanya untuk tujuan pribadi dan non-komersial. Anda tidak boleh menyalahgunakan situs kami atau memperkenalkan virus atau konten berbahaya.",
+            intellectualPropertyTitle: "4. Kekayaan Intelektual",
+            intellectualPropertyText: "Semua konten di SSSTikTok adalah milik SSSTikTok atau pemberi lisensinya dan dilindungi oleh hukum kekayaan intelektual. Anda tidak boleh memperbanyak atau mendistribusikan konten apa pun tanpa izin tertulis sebelumnya.",
+            limitationTitle: "5. Pembatasan Tanggung Jawab",
+             limitationText: "SSSTikTok tidak akan bertanggung jawab atas kerugian tidak langsung atau konsekuensial yang timbul dari penggunaan situs web Anda. Penggunaan situs ini adalah atas risiko Anda sendiri.",
+
+        },
+        ms: {
+            title: "SSSTikTok",
+            subtitle: "Pengunduh Video TikTok Tanpa Tanda Air",
+            button: "Muat Turun",
+            success: "Muat turun berjaya!",
+            error: "Ralat telah berlaku.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Semua hak terpelihara.",
+            mainMessage: "Masukkan URL Video TikTok",
+            contact: "Hubungi",
+            privacyPolicy: "Dasar Privasi",
+            terms: "Terma dan Syarat",
+            button: "Muat Turun",
+            
+            termsTitle: "Terma dan Syarat untuk SSSTikTok",
+            welcomeTitle: "Selamat datang di SSSTikTok!",
+            welcomeText: "Dengan menggunakan laman web kami, anda bersetuju untuk mematuhi dan terikat oleh terma dan syarat berikut. Sila baca dengan teliti.",
+            acceptanceTitle: "1. Penerimaan Terma",
+            acceptanceText: "Dengan mengakses atau menggunakan SSSTikTok, anda mengesahkan bahawa anda menerima Terma dan Syarat ini. Jika anda tidak bersetuju, sila jangan menggunakan perkhidmatan kami.",
+            changesTitle: "2. Perubahan Terma",
+            changesText: "Kami mungkin mengemas kini terma ini secara berkala. Sebarang perubahan akan dipaparkan di halaman ini dengan tarikh berkuatkuasa yang diperbaharui. Penggunaan laman web anda yang berterusan dianggap sebagai penerimaan terma baru.",
+            useTitle: "3. Penggunaan Laman Web",
+            useText: "Anda boleh menggunakan laman web kami untuk tujuan peribadi dan bukan komersial sahaja. Anda tidak boleh menyalahgunakan laman kami atau memperkenalkan virus atau kandungan berbahaya.",
+            intellectualPropertyTitle: "4. Harta Intelek",
+            intellectualPropertyText: "Semua kandungan di SSSTikTok adalah milik SSSTikTok atau pemberi lesen dan dilindungi oleh undang-undang harta intelek. Anda tidak boleh menerbitkan semula atau mengedarkan sebarang kandungan tanpa kebenaran bertulis terlebih dahulu.",
+            limitationTitle: "5. Pembatasan Tanggungjawab",
+            limitationText: "SSSTikTok tidak akan bertanggungjawab ke atas sebarang kerugian tidak langsung atau akibat yang timbul daripada penggunaan laman web anda. Penggunaan laman ini adalah atas risiko anda sendiri.",
+        },
+
+        tr: {
+            title: "SSSTikTok",
+            subtitle: "Filtre Su Olmadan TikTok Video İndirme Aracı",
+            button: "İndir",
+            success: "İndirme başarılı!",
+            error: "Bir hata oluştu.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Tüm hakları saklıdır.",
+            mainMessage: "TikTok Video URL'sini Girin",
+            contact: "İletişim",
+            privacyPolicy: "Gizlilik Politikası",
+            terms: "Şartlar ve Koşullar",
+            button: "İndir",
+        
+            termsTitle: "SSSTikTok için Şartlar ve Koşullar",
+            welcomeTitle: "SSSTikTok'a Hoş Geldiniz!",
+            welcomeText: "Web sitemizi kullanarak, aşağıdaki şartlar ve koşullara uymayı kabul ediyorsunuz. Lütfen dikkatlice okuyun.",
+            acceptanceTitle: "1. Şartların Kabulü",
+            acceptanceText: "SSSTikTok'a erişerek veya kullanarak, bu Şartlar ve Koşulları kabul ettiğinizi onaylıyorsunuz. Kabul etmiyorsanız, lütfen hizmetimizi kullanmayın.",
+            changesTitle: "2. Şartlarda Değişiklikler",
+            changesText: "Bu şartları periyodik olarak güncelleyebiliriz. Herhangi bir değişiklik, bu sayfada güncellenmiş geçerlilik tarihi ile gösterilecektir. Web sitemizi kullanmaya devam etmeniz yeni şartları kabul ettiğiniz anlamına gelir.",
+            useTitle: "3. Web Sitesinin Kullanımı",
+            useText: "Web sitemizi yalnızca kişisel ve ticari olmayan amaçlar için kullanabilirsiniz. Sitemizi kötüye kullanamaz veya virüs veya zararlı içerik ekleyemezsiniz.",
+            intellectualPropertyTitle: "4. Fikri Mülkiyet",
+            intellectualPropertyText: "SSSTikTok üzerindeki tüm içerik, SSSTikTok'a veya lisans verenlere aittir ve fikri mülkiyet yasaları ile korunmaktadır. Herhangi bir içeriği önceden yazılı izin almadan yeniden yayımlayamaz veya dağıtamazsınız.",
+            limitationTitle: "5. Sorumluluk Sınırlamaları",
+            limitationText: "SSSTikTok, web sitemizin kullanımından kaynaklanan herhangi bir dolaylı veya sonuçsal zarardan sorumlu olmayacaktır. Bu siteyi kullanmak tamamen kendi riskinizdedir.",
+        }
+        
+
+
+    };
+    
+    function changeLanguage() {
+        const languageSelector = document.getElementById('language-selector');
+        const selectedLanguage = languageSelector.value;
+        console.log("Selected Language:", selectedLanguage);
+        const translation = translations[selectedLanguage];
+
+        if (translation) {
+            document.getElementById('main-title').textContent = translation.title;
+            document.getElementById('subtitle').textContent = translation.subtitle;
+            document.getElementById('footer-text').innerHTML = translation.footer;
+            document.getElementById('contact-link').textContent = translation.contact;
+            document.getElementById('privacy-policy-link').textContent = translation.privacyPolicy;
+            document.getElementById('terms-link').textContent = translation.terms;
+            document.getElementById('mainMessage').placeholder = translation.mainMessage;
+            document.querySelector('.bt').textContent = translation.button;
+
+            document.getElementById('terms-title').textContent = translation.termsTitle;
+            document.getElementById('welcome-title').textContent = translation.welcomeTitle;
+            document.getElementById('welcome-text').textContent = translation.welcomeText;
+            document.getElementById('acceptance-title').textContent = translation.acceptanceTitle;
+            document.getElementById('acceptance-text').textContent = translation.acceptanceText;
+            document.getElementById('changes-title').textContent = translation.changesTitle;
+            document.getElementById('changes-text').textContent = translation.changesText;
+            document.getElementById('use-title').textContent = translation.useTitle;
+            document.getElementById('use-text').textContent = translation.useText;
+            document.getElementById('intellectual-property-title').textContent = translation.intellectualPropertyTitle;
+            document.getElementById('intellectual-property-text').textContent = translation.intellectualPropertyText;
+            document.getElementById('limitation-title').textContent = translation.limitationTitle;
+            document.getElementById('limitation-text').textContent = translation.limitationText;
+            
+        }
+    }
+</script>
+
+{% include "footer.html" %}

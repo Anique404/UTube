@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>TikTok Video Downloader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Default font for better readability */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
+        }
+
+        .header {
+            background-color: white;
+            height: 60px; /* Height for better visibility */
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Space out title and language section */
+            padding: 0 20px; /* Padding for better spacing */
+            transition: background-color 0.3s, color 0.3s; /* Transition effect */
+        }
+
+        .title-container {
+            display: flex; /* Flexbox for titles */
+            align-items: center; /* Center titles vertically */
+            gap: 0px; /* No gap between Snap and Tik */
+        }
+
+        .title-contai {
+            display: flex; /* Flexbox for titles */
+            align-items: center; /* Center titles vertically */
+            gap: 20px; /* Space between Snap and Tik */
+        }
+
+        .snap {
+            color: blue;
+            font-size:1.3em;
+            font-weight: 600; /* Font weight */
+        }
+
+        .tik {
+            color: black;
+            font-size:1.3em;
+            font-weight: 600; /* Font weight */
+        }
+
+        .lan {
+            /* Height of the dropdown */
+            width: 160px; /* Width of the dropdown */
+            font-size:0.8em;
+            font-weight: 400; /* Font weight */
+            border: none; /* No border */
+            padding: 10px; /* Padding for better spacing */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+        
+        /* Dark mode styles for the language selector */
+        .dark-mode .lan {
+            background-color: #555; /* Dark background for the dropdown */
+            color: white; /* Light text for better visibility */
+        }
+
+        .reset-button{
+
+        }
+
+       
+
+       
+
+        
+        .upper {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #249177, #00527b, #286863);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite; /* Gradient animation */
+            color: white; /* Change text color for better visibility */
+        }
+       
+
+        input[type="text"] {
+            padding: 15px;
+            margin-right: 10px;
+            width: 700px;
+            border-radius: 10px;
+            border: 2px solid black;
+            transition: background-color 0.3s, color 0.3s; /* Transition effect */
+            background-image: url('download.png');
+        }
+
+        .bt {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* Remove borders */
+            padding: 15px 25px; /* Padding */
+            cursor: pointer; /* Mouse pointer on hover */
+            display: inline-flex; /* To ensure the icon and text are aligned */
+            align-items: center; /* Align the icon and text vertically */
+            gap: 5px; /* Space between icon and text */
+            border-radius:20px;
+        }
+        
+        .bt i {
+            font-size: 16px; /* Set the icon size */
+        }
+        
+        
+        .bt:hover {
+            background-color: green;
+        }
+       
+        
+        #progress-container {
+            width: 250px;
+            background-color: #f3f3f3;
+            margin-top: 20px;
+            border-radius:30px;
+            display:none;
+        }
+
+        #progress-bar {
+            width: 0;
+            height: 25px;
+            background-color: green;
+            text-align: center;
+            color: white;
+            border-radius:30px;
+        }
+
+        .message {
+            margin-top: 20px;
+        }
+
+        .success {
+            color: white;
+        }
+
+        .error {
+            color: red;
+        }
+
+        main {
+            
+        }
+
+       
+
+        .dark-mode {
+            background-color: black;
+            color: white; /* Light text for better visibility */
+        }
+
+        .dark-mode .header, 
+        .dark-mode footer, 
+        .dark-mode main, 
+        .dark-mode .tik,
+        .dark-mode hr {
+            background-color: black; /* Dark background for inputs and buttons */
+            color: white; /* Light text for better visibility */
+        }
+
+        .dark-mode input {
+            background: white; /* Dark input background */
+            color: black; /* Light text for better visibility */
+            border: 2px solid #888; /* Lighter border for inputs */
+        }
+
+        .dark-mode .bt {
+            background: #00be63; /* Button background */
+            border: 2px solid #555; /* Border for button */
+        }
+        
+        .reset-button {
+            background-color: grey;
+            border-radius: 50%; /* Circular button */
+            color: white;
+            border: none; /* Remove border */
+            width: 40px; /* Fixed width */
+            height: 40px; /* Fixed height */
+            display: flex;
+            align-items: center; /* Center icon vertically */
+            justify-content: center; /* Center icon horizontally */
+            cursor: pointer;
+        }
+
+        .reset-button:hover {
+            background-color: grey; /* Darker on hover */
+            cursor: pointer;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content */
+            align-items: center; /* Center horizontally */
+            background-color: white;
+            color: black;
+            padding: 20px; /* Padding around the footer */
+            height: 120px; /* Increased height for better spacing */
+            margin-top: 10px; /* Space above the footer */
+            box-shadow: 0 -8px 15px rgba(0, 0, 0, 0); /* Deep shadow above the footer */
+            border-top: 1px solid #ccc; /* Optional: Add a top border for separation */
+        }
+        
+        footer p {
+            margin: 0; /* Remove default margin */
+            
+        }
+        
+        .footer-right {
+            display: flex;
+            gap: 90px; /* Space between the links */
+            margin-top: 20px; /* Space between the text and the links */
+            font-weight:70;
+            font-size:20px;
+        }
+        
+        .footer-right a {
+            text-decoration: none;
+            color: black; /* Link color */
+        }
+        
+        .footer-right a:hover {
+            color: blue; /* Change color on hover */
+        }
+
+
+/* Dark mode styles */
+.dark-mode footer { 
+    color: white;
+}
+
+.dark-mode footer a {
+    color:blue;
+}
+
+.dark-mode footer a:hover {
+    color: lightblue;
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="title-container">
+            <h2 id="title-snap" class="snap">UTube</h2>
+            <h2 id="title-tik" class="tik">Downloader</h2>
+
+        </div>
+        <div class="title-contai">
+            <button class="reset-button" type="button" role="button" onclick="myFunction()">
+                <i id="mode-icon" class="fas fa-moon"></i>
+            </button>
+            
+            <select class="lan" id="language-selector" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="ms">Malay</option>
+                <option value="id">Indonesian</option>
+                <option value="tr">Turkey</option>
+            </select>
+            
+                
+        </div>
+    </header>
+
+    <div class="upper">
+        <form class="search" action="/download" method="post" id="download-form"  onsubmit="showProgress();">
+            <input id="mainMessage" type="text" name="url" placeholder="Enter YouTube Video URL" required>
+            <button type="submit" class="bt"><i class="fas fa-download"></i> Download</button>
+        </form>
+        
+        <div id="progress-container" style="display: none;">
+            <div id="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        {% if message %}
+        <p class="message {{ 'success' if 'successfully' in message else 'error' }}">{{ message }}</p>
+        {% endif %}
+    </div>
+    
+    
+    
+    

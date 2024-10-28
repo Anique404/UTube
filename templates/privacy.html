@@ -1,0 +1,287 @@
+{% include "header.html" %}
+
+
+
+<header>
+    <br><br><br>
+    <center><h1 class="privacy"id="heading">Privacy Policy for SSSTikTok</h1></center>
+</header>
+
+<main class="article-section">
+    <section>
+        <h2 id="value-privacy-title">At SSSTikTok, we value your privacy.</h2>
+        <p id="value-privacy-description">This Privacy Policy explains how we collect, use, and protect your information when you use our website.</p>
+    </section>
+
+    <section>
+        <h2 id="value-info-collect">1. Information We Collect</h2>
+        <ul>
+            <li><strong id="value-personal-info">Personal Information:</strong> <span id="value-personal-info-desc">We do not collect personal data unless you provide it voluntarily.</span></li>
+            <li><strong id="value-usage-data">Usage Data:</strong> <span id="value-usage-data-desc">We automatically collect data about how you interact with our site, including your IP address and browser information.</span></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="value-how-use">2. How We Use Your Information</h2>
+        <p id="value-use-description">We may use the information collected for:</p>
+        <ul>
+            <li id="value-service">Providing and improving our service</li>
+            <li id="value-communication">Communicating with you</li>
+            <li id="value-analysis">Analyzing website usage</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="value-data-sharing">3. Data Sharing</h2>
+        <p id="value-data-sharing-description">We do not sell or trade your information. We may share data with trusted partners who assist us in our operations, provided they agree to keep it confidential.</p>
+    </section>
+
+    <section>
+        <h2 id="value-data-security">4. Data Security</h2>
+        <p id="value-security-description">We take reasonable measures to protect your information but cannot guarantee complete security due to the nature of the internet.</p>
+    </section>
+
+    <section>
+        <h2 id="value-your-rights">5. Your Rights</h2>
+        <p id="value-rights-description">Depending on your jurisdiction, you may have rights regarding your personal data, including access, rectification, or deletion.</p>
+    </section>
+
+    <section>
+        <h2 id="value-policy-changes">6. Changes to This Privacy Policy</h2>
+        <p id="value-changes-description">We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date.</p>
+    </section>
+</main>
+
+
+
+<script>
+    function showProgress() {
+        const progressContainer = document.getElementById("progress-container");
+        const progressBar = document.getElementById("progress-bar");
+        const messageElement = document.querySelector(".message");
+
+        // Reset message visibility
+        if (messageElement) {
+            messageElement.style.display = "none"; // Hide message on new download
+        }
+
+        progressBar.style.width = '0%';  // Reset the progress bar
+        progressContainer.style.display = "block";  // Show the progress container
+
+        // Simulate progress updates (this should be linked to your actual progress)
+        let progress = 0;
+        const interval = setInterval(() => {
+            if (progress < 100) {
+                progress++;
+                progressBar.style.width = progress + "%";
+                progressBar.textContent = progress + "%";
+            } else {
+                clearInterval(interval);
+                alert("Your video is successfully downloaded!"); // You can replace this with your message logic
+            }
+        }, 100);  // Adjust timing as necessary
+    }
+</script>
+
+
+<script>
+    const translations = {
+        en: {
+            title: "SSSTikTok",
+            subtitle: "TikTok Video Downloader Without Watermark",
+            button: "Download",
+            success: "Download successful!",
+            error: "An error occurred.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. All rights reserved.",
+            mainMessage: "Enter TikTok Video URL",
+            contact: "Contact",
+            privacyPolicy: "Privacy Policy",
+            terms: "Terms and Conditions",
+            button: "Download",
+            
+            
+            privacyPolicyTitle: "Privacy Policy for SSSTikTok",
+            valuePrivacyTitle: "At SSSTikTok, we value your privacy.",
+            valuePrivacyDescription: "This Privacy Policy explains how we collect, use, and protect your information when you use our website.",
+            valueInfoCollect: "1. Information We Collect",
+            valuePersonalInfo: "Personal Information:",
+            valuePersonalInfoDesc: "We do not collect personal data unless you provide it voluntarily.",
+            valueUsageData: "Usage Data:",
+            valueUsageDataDesc: "We automatically collect data about how you interact with our site, including your IP address and browser information.",
+            valueHowUse: "2. How We Use Your Information",
+            valueUseDescription: "We may use the information collected for:",
+            valueService: "Providing and improving our service",
+            valueCommunication: "Communicating with you",
+            valueAnalysis: "Analyzing website usage",
+            valueDataSharing: "3. Data Sharing",
+            valueDataSharingDescription: "We do not sell or trade your information. We may share data with trusted partners who assist us in our operations, provided they agree to keep it confidential.",
+            valueDataSecurity: "4. Data Security",
+            valueSecurityDescription: "We take reasonable measures to protect your information but cannot guarantee complete security due to the nature of the internet.",
+            valueYourRights: "5. Your Rights",
+            valueRightsDescription: "Depending on your jurisdiction, you may have rights regarding your personal data, including access, rectification, or deletion.",
+            valuePolicyChanges: "6. Changes to This Privacy Policy",
+            valueChangesDescription: "We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date.",
+            
+            
+        },
+        id: {
+            title: "SSSTikTok",
+            subtitle: "Pengunduh Video TikTok Tanpa Watermark",
+            button: "Unduh",
+            success: "Unduh berhasil!",
+            error: "Terjadi kesalahan.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Semua hak dilindungi.",
+            mainMessage: "Masukkan URL Video TikTok",
+            contact: "Kontak",
+            privacyPolicy: "Kebijakan Privasi",
+            terms: "Syarat dan Ketentuan",
+            button: "Unduh", 
+            
+            privacyPolicyTitle: "Kebijakan Privasi untuk SSSTikTok",
+            valuePrivacyTitle: "Di SSSTikTok, kami menghargai privasi anda.",
+            valuePrivacyDescription: "Kebijakan Privasi ini menerangkan bagaimana kami mengumpul, menggunakan, dan melindungi maklumat anda ketika anda menggunakan laman web kami.",
+            valueInfoCollect: "1. Maklumat yang Kami Kumpul",
+            valuePersonalInfo: "Maklumat Peribadi:",
+            valuePersonalInfoDesc: "Kami tidak mengumpul data peribadi kecuali anda memberikannya secara sukarela.",
+            valueUsageData: "Data Penggunaan:",
+            valueUsageDataDesc: "Kami secara automatik mengumpul data tentang bagaimana anda berinteraksi dengan laman web kami, termasuk alamat IP dan maklumat pelayar anda.",
+            valueHowUse: "2. Bagaimana Kami Menggunakan Maklumat Anda",
+            valueUseDescription: "Kami mungkin menggunakan maklumat yang dikumpulkan untuk:",
+            valueService: "Menyediakan dan meningkatkan perkhidmatan kami",
+            valueCommunication: "Berkomunikasi dengan anda",
+            valueAnalysis: "Menganalisis penggunaan laman web",
+            valueDataSharing: "3. Perkongsian Data",
+            valueDataSharingDescription: "Kami tidak menjual atau memperdagangkan maklumat anda. Kami mungkin berkongsi data dengan rakan kongsi yang dipercayai yang membantu kami dalam operasi kami, dengan syarat mereka bersetuju untuk menyimpannya secara sulit.",
+            valueDataSecurity: "4. Keselamatan Data",
+            valueSecurityDescription: "Kami mengambil langkah-langkah yang munasabah untuk melindungi maklumat anda tetapi tidak dapat menjamin keselamatan sepenuhnya kerana sifat internet.",
+            valueYourRights: "5. Hak Anda",
+            valueRightsDescription: "Bergantung pada bidang kuasa anda, anda mungkin mempunyai hak berkaitan data peribadi anda, termasuk akses, pembetulan, atau penghapusan.",
+            valuePolicyChanges: "6. Perubahan kepada Kebijakan Privasi Ini",
+            valueChangesDescription: "Kami mungkin mengemas kini Kebijakan Privasi ini dari semasa ke semasa. Perubahan akan dipaparkan pada halaman ini dengan tarikh berkuatkuasa yang baru.",
+            
+            
+        },
+        ms: {
+            title: "SSSTikTok",
+            subtitle: "Pengunduh Video TikTok Tanpa Tanda Air",
+            button: "Muat Turun",
+            success: "Muat turun berjaya!",
+            error: "Ralat telah berlaku.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Semua hak terpelihara.",
+            mainMessage: "Masukkan URL Video TikTok",
+            contact: "Hubungi",
+            privacyPolicy: "Dasar Privasi",
+            terms: "Terma dan Syarat",
+            button: "Muat Turun",
+
+            privacyPolicyTitle: "Dasar Privasi untuk SSSTikTok", 
+            valuePrivacyTitle: "Di SSSTikTok, kami menghargai privasi anda.",
+            valuePrivacyDescription: "Dasar Privasi ini menerangkan bagaimana kami mengumpul, menggunakan, dan melindungi maklumat anda ketika anda menggunakan laman web kami.",
+            valueInfoCollect: "1. Maklumat yang Kami Kumpul",
+            valuePersonalInfo: "Maklumat Peribadi:",
+            valuePersonalInfoDesc: "Kami tidak mengumpul data peribadi kecuali anda memberikannya secara sukarela.",
+            valueUsageData: "Data Penggunaan:",
+            valueUsageDataDesc: "Kami secara automatik mengumpul data tentang bagaimana anda berinteraksi dengan laman web kami, termasuk alamat IP dan maklumat pelayar anda.",
+            valueHowUse: "2. Bagaimana Kami Menggunakan Maklumat Anda",
+            valueUseDescription: "Kami mungkin menggunakan maklumat yang dikumpulkan untuk:",
+            valueService: "Menyediakan dan meningkatkan perkhidmatan kami",
+            valueCommunication: "Berkomunikasi dengan anda",
+            valueAnalysis: "Menganalisis penggunaan laman web",
+            valueDataSharing: "3. Perkongsian Data",
+            valueDataSharingDescription: "Kami tidak menjual atau memperdagangkan maklumat anda. Kami mungkin berkongsi data dengan rakan kongsi yang dipercayai yang membantu kami dalam operasi kami, dengan syarat mereka bersetuju untuk menyimpannya secara sulit.",
+            valueDataSecurity: "4. Keselamatan Data",
+            valueSecurityDescription: "Kami mengambil langkah-langkah yang munasabah untuk melindungi maklumat anda tetapi tidak dapat menjamin keselamatan sepenuhnya kerana sifat internet.",
+            valueYourRights: "5. Hak Anda",
+            valueRightsDescription: "Bergantung pada bidang kuasa anda, anda mungkin mempunyai hak berkaitan data peribadi anda, termasuk akses, pembetulan, atau penghapusan.",
+            valuePolicyChanges: "6. Perubahan kepada Dasar Privasi Ini",
+            valueChangesDescription: "Kami mungkin mengemas kini Dasar Privasi ini dari semasa ke semasa. Perubahan akan dipaparkan pada halaman ini dengan tarikh berkuatkuasa yang baru.",
+
+            
+        },
+
+        tr: {
+            title: "SSSTikTok",
+            subtitle: "Filtre Su Olmadan TikTok Video İndirme Aracı",
+            button: "İndir",
+            success: "İndirme başarılı!",
+            error: "Bir hata oluştu.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Tüm hakları saklıdır.",
+            mainMessage: "TikTok Video URL'sini Girin",
+            contact: "İletişim",
+            privacyPolicy: "Gizlilik Politikası",
+            terms: "Şartlar ve Koşullar",
+            button: "İndir",
+        
+            privacyPolicyTitle: "SSSTikTok için Gizlilik Politikası",
+            valuePrivacyTitle: "SSSTikTok'ta, gizliliğinize değer veriyoruz.",
+            valuePrivacyDescription: "Bu Gizlilik Politikası, web sitemizi kullanırken bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
+            valueInfoCollect: "1. Topladığımız Bilgiler",
+            valuePersonalInfo: "Kişisel Bilgiler:",
+            valuePersonalInfoDesc: "Gönüllü olarak sağlamadığınız sürece kişisel verileri toplamıyoruz.",
+            valueUsageData: "Kullanım Verileri:",
+            valueUsageDataDesc: "Web sitemizle nasıl etkileşimde bulunduğunuza dair verileri otomatik olarak topluyoruz, bunlar arasında IP adresi ve tarayıcı bilgileri de yer alır.",
+            valueHowUse: "2. Bilgilerinizi Nasıl Kullanıyoruz",
+            valueUseDescription: "Toplanan bilgileri aşağıdakiler için kullanabiliriz:",
+            valueService: "Hizmetlerimizi sağlamak ve geliştirmek",
+            valueCommunication: "Sizinle iletişim kurmak",
+            valueAnalysis: "Web sitesi kullanımını analiz etmek",
+            valueDataSharing: "3. Veri Paylaşımı",
+            valueDataSharingDescription: "Bilgilerinizi satmıyoruz veya ticaretini yapmıyoruz. Verileri, güvenilir ortaklarla paylaşabiliriz, bu ortaklar bilgilerinizi gizli tutmayı kabul ettikleri sürece.",
+            valueDataSecurity: "4. Veri Güvenliği",
+            valueSecurityDescription: "Bilgilerinizi korumak için makul önlemler alıyoruz ancak internetin doğası gereği tamamen güvenli olacağını garanti edemeyiz.",
+            valueYourRights: "5. Haklarınız",
+            valueRightsDescription: "Yargı alanınıza bağlı olarak, kişisel verilerinizle ilgili erişim, düzeltme veya silme hakkına sahip olabilirsiniz.",
+            valuePolicyChanges: "6. Bu Gizlilik Politikasındaki Değişiklikler",
+            valueChangesDescription: "Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Değişiklikler, geçerlilik tarihi ile birlikte bu sayfada gösterilecektir.",
+        }
+        
+
+
+
+    };
+    
+    function changeLanguage() {
+        const languageSelector = document.getElementById('language-selector');
+        const selectedLanguage = languageSelector.value;
+        console.log("Selected Language:", selectedLanguage);
+        const translation = translations[selectedLanguage];
+
+        if (translation) {
+            document.getElementById('main-title').textContent = translation.title;
+            document.getElementById('subtitle').textContent = translation.subtitle;
+            document.getElementById('footer-text').innerHTML = translation.footer;
+            document.getElementById('contact-link').textContent = translation.contact;
+            document.getElementById('privacy-policy-link').textContent = translation.privacyPolicy;
+            document.getElementById('terms-link').textContent = translation.terms;
+            document.getElementById('mainMessage').placeholder = translation.mainMessage;
+            document.querySelector('.bt').textContent = translation.button;
+
+            document.getElementById('heading').textContent = translation.privacyPolicyTitle;
+            document.getElementById('value-privacy-title').textContent = translation.valuePrivacyTitle;
+            document.getElementById('value-privacy-description').textContent = translation.valuePrivacyDescription;
+            document.getElementById('value-info-collect').textContent = translation.valueInfoCollect;
+            document.getElementById('value-personal-info').textContent = translation.valuePersonalInfo;
+            document.getElementById('value-personal-info-desc').textContent = translation.valuePersonalInfoDesc;
+            document.getElementById('value-usage-data').textContent = translation.valueUsageData;
+            document.getElementById('value-usage-data-desc').textContent = translation.valueUsageDataDesc;
+            document.getElementById('value-how-use').textContent = translation.valueHowUse;
+            document.getElementById('value-use-description').textContent = translation.valueUseDescription;
+            document.getElementById('value-service').textContent = translation.valueService;
+            document.getElementById('value-communication').textContent = translation.valueCommunication;
+            document.getElementById('value-analysis').textContent = translation.valueAnalysis;
+            document.getElementById('value-data-sharing').textContent = translation.valueDataSharing;
+            document.getElementById('value-data-sharing-description').textContent = translation.valueDataSharingDescription;
+            document.getElementById('value-data-security').textContent = translation.valueDataSecurity;
+            document.getElementById('value-security-description').textContent = translation.valueSecurityDescription;
+            document.getElementById('value-your-rights').textContent = translation.valueYourRights;
+            document.getElementById('value-rights-description').textContent = translation.valueRightsDescription;
+            document.getElementById('value-policy-changes').textContent = translation.valuePolicyChanges;
+            document.getElementById('value-changes-description').textContent = translation.valueChangesDescription;
+
+            
+            
+        }
+    }
+</script>
+
+{% include "footer.html" %}

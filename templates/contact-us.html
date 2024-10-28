@@ -1,0 +1,208 @@
+{% include "header.html" %}
+
+<main>
+    <br><br><br>
+    <div class="Contact">
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-6" id="contact-title">Contact-Us</h2>
+            <form id="contact-form">
+                <div class="mb-4">
+                    <label class="block text-blue-900 text-sm font-semibold mb-2" for="email" id="email-label">Your contact email</label>
+                    <input type="email" id="email" name="user_email" placeholder="Your email" required 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-blue-900 text-sm font-semibold mb-2" for="message" id="message-label">Message or bug report</label>
+                    <textarea id="message" name="message" placeholder="Your message" required 
+                              class="w-full p-3 border border-gray-300 rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" 
+                            class="bg-purple-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-purple-700 transition duration-300" id="submit-button">
+                        Submit
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    <div>
+    
+
+    <br><br><br>
+    
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("IKN6s4U4RH2STAV2B"); // Replace with your actual Public Key
+        })();
+    
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            console.log("Email:", email);
+            console.log("Message:", message);
+        
+            emailjs.sendForm('service_nfowq1a', 'template_6el0krb', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    alert('Failed to send message. Error: ' + JSON.stringify(error));
+                });
+        });
+        
+    </script>
+    
+
+
+</main>
+
+<script>
+    function showProgress() {
+        const progressContainer = document.getElementById("progress-container");
+        const progressBar = document.getElementById("progress-bar");
+        const messageElement = document.querySelector(".message");
+
+        // Reset message visibility
+        if (messageElement) {
+            messageElement.style.display = "none"; // Hide message on new download
+        }
+
+        progressBar.style.width = '0%';  // Reset the progress bar
+        progressContainer.style.display = "block";  // Show the progress container
+
+        // Simulate progress updates (this should be linked to your actual progress)
+        let progress = 0;
+        const interval = setInterval(() => {
+            if (progress < 100) {
+                progress++;
+                progressBar.style.width = progress + "%";
+                progressBar.textContent = progress + "%";
+            } else {
+                clearInterval(interval);
+                alert("Your video is successfully downloaded!"); // You can replace this with your message logic
+            }
+        }, 100);  // Adjust timing as necessary
+    }
+</script>
+
+<script>
+    const translations = {
+        en: {
+            title: "SSSTikTok",
+            subtitle: "TikTok Video Downloader Without Watermark",
+            button: "Download",
+            success: "Download successful!",
+            error: "An error occurred.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. All rights reserved.",
+            mainMessage: "Enter TikTok Video URL",
+            contact: "Contact",
+            privacyPolicy: "Privacy Policy",
+            terms: "Terms and Conditions",
+            button: "Download",
+            
+            
+            contactTitle: "Contact Us",
+            emailLabel: "Your contact email",
+            messageLabel: "Message or bug report",
+            submitButton: "Submit",
+
+            
+        },
+        id: {
+            title: "SSSTikTok",
+            subtitle: "Pengunduh Video TikTok Tanpa Watermark",
+            button: "Unduh",
+            success: "Unduh berhasil!",
+            error: "Terjadi kesalahan.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Semua hak dilindungi.",
+            mainMessage: "Masukkan URL Video TikTok",
+            contact: "Kontak",
+            privacyPolicy: "Kebijakan Privasi",
+            terms: "Syarat dan Ketentuan",
+            button: "Unduh",
+            
+            
+            contactTitle: "Hubungi Kami",
+            emailLabel: "Email kontak anda",
+            messageLabel: "Pesan atau laporan bug",
+            submitButton: "Kirim",
+            termsTitle: "Syarat dan Ketentuan untuk SSSTikTok",
+
+            
+        },
+        ms: {
+            title: "SSSTikTok",
+            subtitle: "Pengunduh Video TikTok Tanpa Tanda Air",
+            button: "Muat Turun",
+            success: "Muat turun berjaya!",
+            error: "Ralat telah berlaku.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Semua hak terpelihara.",
+            mainMessage: "Masukkan URL Video TikTok",
+            contact: "Hubungi",
+            privacyPolicy: "Dasar Privasi",
+            terms: "Terma dan Syarat",
+            button: "Muat Turun",
+
+            
+            contactTitle: "Hubungi Kami",
+            emailLabel: "Email kontak anda",
+            messageLabel: "Pesan atau laporan bug",
+            submitButton: "Hantar",
+            
+            
+        },
+
+        tr: {
+            title: "SSSTikTok",
+            subtitle: "Filtre Su Olmadan TikTok Video İndirme Aracı",
+            button: "İndir",
+            success: "İndirme başarılı!",
+            error: "Bir hata oluştu.",
+            footer: "&copy; 2024 <a href='{{ url_for('homepage') }}'>SSSTikTok</a>. Tüm hakları saklıdır.",
+            mainMessage: "TikTok Video URL'sini Girin",
+            contact: "İletişim",
+            privacyPolicy: "Gizlilik Politikası",
+            terms: "Şartlar ve Koşullar",
+            button: "İndir",
+        
+            contactTitle: "Bize Ulaşın",
+            emailLabel: "E-posta adresiniz",
+            messageLabel: "Mesaj veya hata raporu",
+            submitButton: "Gönder",
+        },
+        
+    };
+    
+    function changeLanguage() {
+        const languageSelector = document.getElementById('language-selector');
+        const selectedLanguage = languageSelector.value;
+        console.log("Selected Language:", selectedLanguage);
+        const translation = translations[selectedLanguage];
+
+        if (translation) {
+            document.getElementById('main-title').textContent = translation.title;
+            document.getElementById('subtitle').textContent = translation.subtitle;
+            document.getElementById('footer-text').innerHTML = translation.footer;
+            document.getElementById('contact-link').textContent = translation.contact;
+            document.getElementById('privacy-policy-link').textContent = translation.privacyPolicy;
+            document.getElementById('terms-link').textContent = translation.terms;
+            document.getElementById('mainMessage').placeholder = translation.mainMessage;
+            document.querySelector('.bt').textContent = translation.button;
+
+            
+
+            console.log("Translations:", translation);
+            document.getElementById('contact-title').textContent = translation.contactTitle;
+            document.getElementById('email-label').textContent = translation.emailLabel;
+            document.getElementById('message-label').textContent = translation.messageLabel;
+            document.getElementById('submit-button').textContent = translation.submitButton;
+            
+        }
+    }
+</script>
+
+{% include "footer.html" %}

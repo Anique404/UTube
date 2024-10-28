@@ -1,0 +1,35 @@
+<footer id="footer">
+    <p  class="footertext" id="footer-text">&copy; 2024 <a href="{{ url_for('homepage') }}">SSSTikTok</a>. All rights reserved.</p>
+    <div id="footer-right" class="footer-right">
+        <a href="{{ url_for('contact') }}" id="contact-link">Contact-Us</a>
+        <a href="{{ url_for('privacy_policy') }}" id="privacy-policy-link">Privacy Policy</a>
+        <a href="{{ url_for('terms_conditions') }}" id="terms-link">Terms and Conditions</a>
+    </div>
+</footer>
+
+
+
+<script>
+    function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+
+        var icon = document.getElementById("mode-icon");
+        // Toggle between sun and moon icons
+        if (element.classList.contains("dark-mode")) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+            
+        } else {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+            
+        }
+    }
+        </script>
+    
+       
+</body>
+</html>
+
+           

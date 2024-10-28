@@ -1,0 +1,50 @@
+{% include "header.html" %}
+<main>
+    <center>
+
+
+
+    </center>
+ 
+    
+</main>
+
+{% include "footer.html" %}
+
+<script>
+    function showProgress() {
+        const progressContainer = document.getElementById("progress-container");
+        const progressBar = document.getElementById("progress-bar");
+        const messageElement = document.querySelector(".message");
+
+        // Reset message visibility
+        if (messageElement) {
+            messageElement.style.display = "none"; // Hide message on new download
+        }
+
+        progressBar.style.width = '0%';  // Reset the progress bar
+        progressContainer.style.display = "block";  // Show the progress container
+
+        // Simulate progress updates (this should be linked to your actual progress)
+        let progress = 0;
+        const interval = setInterval(() => {
+            if (progress < 100) {
+                progress++;
+                progressBar.style.width = progress + "%";
+                progressBar.textContent = progress + "%";
+            } else {
+                clearInterval(interval);
+                alert("Your video is successfully downloaded!"); // You can replace this with your message logic
+            }
+        }, 100);  // Adjust timing as necessary
+    }
+</script>
+
+
+
+
+
+
+
+
+
