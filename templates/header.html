@@ -297,13 +297,14 @@
     <div class="upper">
         <form class="search" id="quality-form" onsubmit="return showDownloadForm();">
             <input id="mainMessage" type="text" name="url" placeholder="Enter YouTube Video URL" required>
-            <button type="submit" class="bt"><i class="fas fa-arrow-right"></i> Select Quality</button>
+            <button type="submit" class="bt"><i class="fas fa-arrow-right"></i> Download</button>
         </form>
         
         <form class="search" id="download-form" action="/download" method="post" style="display: none;" onsubmit="showProgress();">
             <input type="hidden" name="url" id="hidden-url">
             
-            <label>Select Quality</label><br>
+            <center><label>Select Quality</label><br></center>
+            <br>
             <div class="quality-options">
                 <div>
                     <input type="radio" id="1080p" name="quality" value="1080p" required>
@@ -328,7 +329,7 @@
             </div>
             
             <br>
-            <button type="submit" class="bt"><i class="fas fa-download"></i> Download</button>
+            <center><button type="submit" class="bt"><i class="fas fa-download"></i> Download</button></center>
         </form>
         
         <div id="progress-container" style="display: none;">
