@@ -68,15 +68,6 @@
             background-color: #555; /* Dark background for the dropdown */
             color: white; /* Light text for better visibility */
         }
-
-        .reset-button{
-
-        }
-
-       
-
-       
-
         
         .upper {
             display: flex;
@@ -156,6 +147,25 @@
             
         }
 
+        .search{
+            font-size:22px;
+            font-weight:80;
+        }
+
+        .quality-options {
+            display: flex;
+            flex-wrap: wrap;  /* Allow wrapping to the next line if there's not enough space */
+            gap: 30px;  /* Space between the items */
+            font-size:20px;
+            font-weight:80;
+        }
+        
+        .quality-options div {
+            display: flex;
+            align-items: center;  /* Center the label vertically with the radio button */
+        }
+        
+
        
 
         .dark-mode {
@@ -232,24 +242,30 @@
             text-decoration: none;
             color: black; /* Link color */
         }
+
+        
         
         .footer-right a:hover {
             color: blue; /* Change color on hover */
         }
 
+        /* Dark mode styles */
+        .dark-mode footer { 
+            color: white;
+        }
 
-/* Dark mode styles */
-.dark-mode footer { 
-    color: white;
-}
+        .dark-mode footer a {
+           color:blue;
+        } 
 
-.dark-mode footer a {
-    color:blue;
-}
+        .dark-mode footer a:hover {
+          color: lightblue;
+        }
 
-.dark-mode footer a:hover {
-    color: lightblue;
-}
+        
+
+
+
 
 
     </style>
@@ -279,20 +295,46 @@
     </header>
 
     <div class="upper">
-        <form class="search" action="/download" method="post" id="download-form" onsubmit="showProgress();">
+        <form class="search" id="quality-form" onsubmit="return showDownloadForm();">
             <input id="mainMessage" type="text" name="url" placeholder="Enter YouTube Video URL" required>
-            
-            <select name="quality" required>
-                <option value="best">Best Quality</option>
-                <option value="1080p">1080p</option>
-                <option value="720p">720p</option>
-                <option value="480p">480p</option>
-                <option value="360p">360p</option>
-                <option value="140p">140p</option>
-            </select>
-            
-            <button type="submit" class="bt"><i class="fas fa-download"></i> Download</button>
+            <button type="submit" class="bt"><i class="fas fa-arrow-right"></i> Download</button>
         </form>
+        
+        <form class="search" id="download-form" action="/download" method="post" style="display: none;" onsubmit="showProgress();">
+            <input type="hidden" name="url" id="hidden-url">
+        
+            <center><label>Select Quality</label></center>
+                <br>
+            
+            <div class="quality-options">
+                <div>
+                    <input type="radio" id="1080p" name="quality" value="1080p" required>
+                    <label for="1080p">1080p</label>
+                </div>
+                <div>
+                    <input type="radio" id="720p" name="quality" value="720p" required>
+                    <label for="720p">720p</label>
+                </div>
+                <div>
+                    <input type="radio" id="480p" name="quality" value="480p" required>
+                    <label for="480p">480p</label>
+                </div>
+                <div>
+                    <input type="radio" id="360p" name="quality" value="360p" required>
+                    <label for="360p">360p</label>
+                </div>
+                <div>
+                    <input type="radio" id="140p" name="quality" value="140p" required>
+                    <label for="140p">140p</label>
+                </div>
+            </div>
+        
+            <br>
+
+            <center><button type="submit" class="bt"><i class="fas fa-download"></i> Download</button></center>
+
+        </form>
+        
         
         <div id="progress-container" style="display: none;">
             <div id="progress-bar" style="width: 0%;"></div>
@@ -303,7 +345,18 @@
         {% endif %}
     </div>
     
+    <script>
+        function showDownloadForm() {
+            const urlInput = document.getElementById('mainMessage').value;
+            document.getElementById('hidden-url').value = urlInput;
+            document.getElementById('quality-form').style.display = 'none';
+            document.getElementById('download-form').style.display = 'block';
+            return false;  // Prevent form submission
+        }
     
-    
-    
+        function showProgress() {
+            document.getElementById('progress-container').style.display = 'block';
+            // Additional progress tracking logic can be added here
+        }
+    </script>
     
