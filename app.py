@@ -26,6 +26,7 @@ def terms_conditions():
 @app.route('/download', methods=['POST'])
 def download():
     message = None
+    session['progress'] = 0  # Reset progress on each new download
 
     if request.method == 'POST':
         url = request.form['url'].strip()
@@ -33,36 +34,43 @@ def download():
         downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
 
         # Define the format based on user selection
-        format_selection = 'best' if selected_quality == 'best' else f'bestvideo[height<={selected_quality[:-1]}]+bestaudio/best'
+        format_selection = f'bestvideo[height<={selected_quality[:-1]}]+bestaudio/best'
 
         # Set yt_dlp options to save files in the Downloads folder
         ydl_opts = {
-            'outtmpl': os.path.join(downloads_folder, '%(title)s.%(ext)s'),  # Output template
-            'noplaylist': False,  # Allow playlist downloads
-            'format': format_selection,  # Download based on user-selected quality
+            'outtmpl': os.path.join(downloads_folder, '%(title)s.%(ext)s'),
+            'format': format_selection,
+            'progress_hooks': [progress_hook]
         }
 
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                if "playlist" in url:
-                    playlist_info = ydl.extract_info(url, download=False)
-                    message = f"Downloading playlist: {playlist_info['title']}"
-                    ydl.download([url])
-                    message += " - All videos downloaded successfully!"
-                else:
-                    if not re.match(r'https?://(?:www\.)?youtube\.com/watch\?v=.+|https?://youtu\.be/.+', url):
-                        message = "Please enter a valid YouTube URL."
-                        return render_template('homepage.html', message=message)
+                if not re.match(r'https?://(?:www\.)?youtube\.com/watch\?v=.+|https?://youtu\.be/.+', url):
+                    message = "Please enter a valid YouTube URL."
+                    return render_template('homepage.html', message=message)
 
-                    video_info = ydl.extract_info(url, download=True)
-                    message = "Video successfully downloaded!"
+                ydl.download([url])  # Start the download
+                session['progress'] = 100  # Set progress to 100% upon completion
+                message = "Video successfully downloaded!"
 
         except Exception as e:
             message = f"An error occurred while downloading: {e}"
 
     return render_template('homepage.html', message=message)
 
-# Other routes...
+def progress_hook(d):
+    if d['status'] == 'downloading':
+        total_size = d.get('total_bytes', 0)
+        downloaded_size = d.get('downloaded_bytes', 0)
+        if total_size > 0:
+            percentage = (downloaded_size / total_size) * 100
+            session['progress'] = percentage
+
+@app.route('/progress')
+def progress():
+    return jsonify(progress=session.get('progress', 0))
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

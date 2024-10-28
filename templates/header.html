@@ -297,15 +297,13 @@
     <div class="upper">
         <form class="search" id="quality-form" onsubmit="return showDownloadForm();">
             <input id="mainMessage" type="text" name="url" placeholder="Enter YouTube Video URL" required>
-            <button type="submit" class="bt"><i class="fas fa-arrow-right"></i> Download</button>
+            <button type="submit" class="bt"><i class="fas fa-arrow-right"></i> Select Quality</button>
         </form>
         
         <form class="search" id="download-form" action="/download" method="post" style="display: none;" onsubmit="showProgress();">
             <input type="hidden" name="url" id="hidden-url">
-        
-            <center><label>Select Quality</label></center>
-                <br>
             
+            <label>Select Quality</label><br>
             <div class="quality-options">
                 <div>
                     <input type="radio" id="1080p" name="quality" value="1080p" required>
@@ -328,16 +326,13 @@
                     <label for="140p">140p</label>
                 </div>
             </div>
-        
+            
             <br>
-
-            <center><button type="submit" class="bt"><i class="fas fa-download"></i> Download</button></center>
-
+            <button type="submit" class="bt"><i class="fas fa-download"></i> Download</button>
         </form>
         
-        
         <div id="progress-container" style="display: none;">
-            <div id="progress-bar" style="width: 0%;"></div>
+            <div id="progress-bar" style="width: 0%; background-color: green; height: 20px;"></div>
         </div>
         
         {% if message %}
@@ -355,8 +350,27 @@
         }
     
         function showProgress() {
-            document.getElementById('progress-container').style.display = 'block';
-            // Additional progress tracking logic can be added here
+            const progressContainer = document.getElementById("progress-container");
+            const progressBar = document.getElementById("progress-bar");
+            
+            progressBar.style.width = '0%';  // Reset progress bar
+            progressContainer.style.display = "block";  // Show progress container
+    
+            // Start polling for progress
+            const interval = setInterval(() => {
+                fetch('/progress')
+                    .then(response => response.json())
+                    .then(data => {
+                        const progress = data.progress;
+                        progressBar.style.width = progress.toFixed(2) + "%";  // Update progress bar width
+                        progressBar.textContent = progress.toFixed(2) + "%";  // Update text
+    
+                        if (progress >= 100) {
+                            clearInterval(interval);
+                            alert("Your video is successfully downloaded!");  // Alert after download is complete
+                        }
+                    });
+            }, 1000);  // Poll every second
         }
     </script>
     
