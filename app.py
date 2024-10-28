@@ -29,13 +29,17 @@ def download():
 
     if request.method == 'POST':
         url = request.form['url'].strip()
+        selected_quality = request.form['quality']
         downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
+
+        # Define the format based on user selection
+        format_selection = 'best' if selected_quality == 'best' else f'bestvideo[height<={selected_quality[:-1]}]+bestaudio/best'
 
         # Set yt_dlp options to save files in the Downloads folder
         ydl_opts = {
             'outtmpl': os.path.join(downloads_folder, '%(title)s.%(ext)s'),  # Output template
             'noplaylist': False,  # Allow playlist downloads
-            'format': 'best',  # Download the best quality available
+            'format': format_selection,  # Download based on user-selected quality
         }
 
         try:
@@ -58,9 +62,7 @@ def download():
 
     return render_template('homepage.html', message=message)
 
-@app.route('/progress')
-def progress():
-    return jsonify(progress=session.get('progress', 0))  # Return current progress
+# Other routes...
 
 if __name__ == '__main__':
     app.run(debug=True)

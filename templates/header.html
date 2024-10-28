@@ -279,8 +279,18 @@
     </header>
 
     <div class="upper">
-        <form class="search" action="/download" method="post" id="download-form"  onsubmit="showProgress();">
+        <form class="search" action="/download" method="post" id="download-form" onsubmit="showProgress();">
             <input id="mainMessage" type="text" name="url" placeholder="Enter YouTube Video URL" required>
+            
+            <select name="quality" required>
+                <option value="best">Best Quality</option>
+                <option value="1080p">1080p</option>
+                <option value="720p">720p</option>
+                <option value="480p">480p</option>
+                <option value="360p">360p</option>
+                <option value="140p">140p</option>
+            </select>
+            
             <button type="submit" class="bt"><i class="fas fa-download"></i> Download</button>
         </form>
         
@@ -292,6 +302,7 @@
         <p class="message {{ 'success' if 'successfully' in message else 'error' }}">{{ message }}</p>
         {% endif %}
     </div>
+    
     
     
     
